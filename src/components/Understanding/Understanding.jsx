@@ -1,6 +1,13 @@
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 function Understanding() {
+    const [understanding, setUnderstanding] = useState('')
+
+    const handleUnderstanding = (event) => {
+        console.log('understanding: ', event.target.value)
+        setUnderstanding(event.target.value)
+    }
 
     const history = useHistory();
 
@@ -12,7 +19,7 @@ function Understanding() {
         <div>
             <h2>How well are you understanding the content?</h2>
             <input
-                // onChange={handleFeeling}
+                onChange={handleUnderstanding}
                 type='number'
                 placeholder='-'
                 min='1'

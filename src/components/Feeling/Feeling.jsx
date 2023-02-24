@@ -1,25 +1,25 @@
-// import { useState } from "react"
+import { useState } from "react"
 import { useHistory } from 'react-router-dom';
 
 function Feeling() {
-    // const [feeling, setFeeling] = useState({feeling: ''})
+    const [feeling, setFeeling] = useState('')
+
+    const handleFeeling = (event) => {
+        console.log('feeling: ', event.target.value)
+        setFeeling(event.target.value)
+    }
 
     const history = useHistory()
-
-    // const handleFeeling = (event) => {
-    //     setFeeling({feeling: event.target.value})
-    // }
 
     const handleClick = () => {
         history.push("/understanding");
     }
 
-
     return(
         <div>
             <h2>How are you feeling today?</h2>
             <input
-                // onChange={handleFeeling}
+                onChange={handleFeeling}
                 type='number'
                 placeholder='-'
                 min='1'

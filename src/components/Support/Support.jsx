@@ -1,6 +1,13 @@
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 function Support() {
+    const [support, setSupport] = useState('')
+
+    const handleSupport = (event) => {
+        console.log('support: ', event.target.value)
+        setSupport(event.target.value)
+    }
 
     const history = useHistory();
 
@@ -12,7 +19,7 @@ function Support() {
         <div>
             <h2>How well are you being supported?</h2>
             <input
-                // onChange={handleFeeling}
+                onChange={handleSupport}
                 type='number'
                 placeholder='-'
                 min='1'

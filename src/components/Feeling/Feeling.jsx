@@ -1,11 +1,18 @@
-import { useState } from "react"
+// import { useState } from "react"
+import { useHistory } from 'react-router-dom';
 
 function Feeling() {
     // const [feeling, setFeeling] = useState({feeling: ''})
 
+    const history = useHistory()
+
     // const handleFeeling = (event) => {
     //     setFeeling({feeling: event.target.value})
     // }
+
+    const handleClick = () => {
+        history.push("/understanding");
+    }
 
 
     return(
@@ -18,7 +25,7 @@ function Feeling() {
                 min='1'
                 max='5'
             />
-            <button>Next</button>
+            <button onClick={handleClick} >Next</button>
         </div>
     )
 }

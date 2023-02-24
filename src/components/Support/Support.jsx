@@ -1,4 +1,13 @@
+import { useHistory } from "react-router-dom";
+
 function Support() {
+
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push("/comments");
+    }
+
     return(
         <div>
             <h2>How well are you being supported?</h2>
@@ -9,7 +18,7 @@ function Support() {
                 min='1'
                 max='5'
             />
-            <button>Next</button>
+            <button onClick={handleClick}>Next</button>
         </div>
     )
 }

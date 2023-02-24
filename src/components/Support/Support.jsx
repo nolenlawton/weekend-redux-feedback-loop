@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function Support() {
     const [support, setSupport] = useState('')
@@ -9,9 +10,15 @@ function Support() {
         setSupport(event.target.value)
     }
 
+    const dispatch = useDispatch()
     const history = useHistory();
 
     const handleClick = () => {
+        dispatch({
+            type: 'SET_SUPPORT',
+            payload: support
+        })
+
         history.push("/comments");
     }
 

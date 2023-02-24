@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function Comments() {
     const [comments, setComments] = useState('')
@@ -9,9 +10,15 @@ function Comments() {
         setComments(event.target.value)
     }
 
+    const dispatch = useDispatch()
     const history = useHistory();
 
     const handleClick = () => {
+        dispatch({
+            type: 'SET_COMMENTS',
+            payload: comments
+        })
+
         history.push("/review");
     }
 

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 
 function Feeling() {
     const [feeling, setFeeling] = useState('')
@@ -9,9 +10,16 @@ function Feeling() {
         setFeeling(event.target.value)
     }
 
+    const dispatch = useDispatch()
     const history = useHistory()
 
     const handleClick = () => {
+
+        dispatch({
+            type: 'SET_FEELING',
+            payload: feeling
+        })
+
         history.push("/understanding");
     }
 

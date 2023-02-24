@@ -7,13 +7,44 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const reducer = (state = [], action) => {
-    return action.payload
+const feeling = (state = [], action) => {
+    if(action.type === 'SET_FEELING'){
+        console.log(action.payload)
+        return action.payload
+    }
+    return state
+}
+
+const understanding = (state = [], action) => {
+    if(action.type === 'SET_UNDERSTANDING'){
+        console.log(action.payload)
+        return action.payload
+    }
+    return state
+}
+
+const support = (state = [], action) => {
+    if(action.type === 'SET_SUPPORT'){
+        console.log(action.payload)
+        return action.payload
+    }
+    return state
+}
+
+const comments = (state = [], action) => {
+    if(action.type === 'SET_COMMENTS'){
+        console.log(action.payload)
+        return action.payload
+    }
+    return state
 }
 
 const store = createStore(
     combineReducers({
-        reducer,
+        feeling,
+        understanding,
+        support,
+        comments
     }),
     applyMiddleware(logger)
 )

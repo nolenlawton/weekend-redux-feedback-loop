@@ -1,7 +1,17 @@
 import { useSelector } from "react-redux"
+import axios from "axios";
 
 function Review() {
     const survey = useSelector(store => store)
+
+    const handleClick = () => {
+        axios.post('/survey', survey)
+            .then((response) => {
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+    }
 
     return(
         <>
@@ -21,6 +31,9 @@ function Review() {
                 </tr>
 
             </table>
+
+            {/* submits to database */}
+            <button onClick={handleClick} >Submit</button>
         </>
     )
 }

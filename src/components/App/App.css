@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #5288de;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -18,6 +18,90 @@
   font-size: large;
 }
 
+.component {
+  position: relative;
+  background-color: #5288de;
+  color:white;
+  width: 500px;
+  margin: auto;
+  padding: 80px;
+  border-radius: 16px;
+}
+
+.question {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.input {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 24px;
+}
+
+input[type=radio] {
+  border: 0px;
+  width: 24px;
+  height: 70%;
+  cursor: pointer;
+  accent-color: #5288de;
+}
+
+.text {
+  margin-top: 50px;
+  width: 380px;
+  height: 34.5px;
+  font-size: 16px;
+  color: #395e9a;
+  padding: 8px;
+  border-radius: 8px;
+  border: 0px;
+}
+
+input, label {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.next {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 2px solid #395e9a;
+  background-color: white;
+  color: #395e9a;
+  cursor: pointer;
+}
+
 h4 {
   font-style: italic;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  border: 1px solid #395e9a;
+  width: 500px;
+}
+
+.topTable {
+  border-bottom: 0px
+}
+
+.bottomTable {
+  border-top: 0px
+}
+
+th {
+  background-color: #395e9a;
+  padding: 16px;
+}
+td {
+  background-color: #5288de;
+  padding: 16px;
 }

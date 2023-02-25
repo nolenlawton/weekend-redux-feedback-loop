@@ -23,14 +23,15 @@ function Comments() {
     }
 
     return(
-        <div>
-            <h2>Any comments you want to leave?</h2>
+        <div className="component">
+            <h2 className="question">Any comments you want to leave?</h2>
             <input
+                className="text"
                 onChange={handleComments}
                 type='text'
-                placeholder='-'
+                placeholder=''
             />
-            <button onClick={handleClick}>Next</button>
+            <button className="next" onClick={handleClick}>Next</button>
         </div>
 
     )

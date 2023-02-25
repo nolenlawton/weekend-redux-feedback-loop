@@ -26,7 +26,10 @@ function Support() {
         else {
             history.push("/comments");
         }
+    }
 
+    const handleBack = () => {
+        history.goBack()
     }
 
     return(
@@ -57,6 +60,8 @@ function Support() {
             </form>
             
             <button className="next" onClick={handleClick} >Next</button>
+            <button className="back" onClick={handleBack} >Back</button>
+
         </div>
     )
 }

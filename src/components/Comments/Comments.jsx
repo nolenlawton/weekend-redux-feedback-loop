@@ -22,6 +22,10 @@ function Comments() {
         history.push("/review");
     }
 
+    const handleBack = () => {
+        history.goBack()
+    }
+
     return(
         <div className="component">
             <h2 className="question">Any comments you want to leave?</h2>
@@ -32,6 +36,8 @@ function Comments() {
                 placeholder=''
             />
             <button className="next" onClick={handleClick}>Next</button>
+            <button className="back" onClick={handleBack}>Back</button>
+
         </div>
 
     )

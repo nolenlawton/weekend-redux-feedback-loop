@@ -82,6 +82,19 @@ label {
   cursor: pointer;
 }
 
+.back {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 2px solid #395e9a;
+  background-color: white;
+  color: #395e9a;
+  cursor: pointer;
+}
+
 h4 {
   font-style: italic;
 }

@@ -28,6 +28,10 @@ function Understanding() {
         }
     }
 
+    const handleBack = () => {
+        history.goBack()
+    }
+
     return(
         <div className="component">
             <h2 className="question">How well are you understanding the content?</h2>
@@ -56,6 +60,7 @@ function Understanding() {
             </form>
             
             <button className="next" onClick={handleClick} >Next</button>
+            <button className="back" onClick={handleBack} >Back</button>
         </div>
     )
 }

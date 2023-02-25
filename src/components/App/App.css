@@ -59,9 +59,13 @@ input[type=radio] {
   border: 0px;
 }
 
-input, label {
+input {
   padding: 0px;
   margin: 0px;
+}
+
+label {
+  padding-left: 8px;
 }
 
 

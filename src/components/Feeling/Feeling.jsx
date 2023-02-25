@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
+import swal from "sweetalert";
 
 function Feeling() {
     const [feeling, setFeeling] = useState('')
@@ -20,7 +21,12 @@ function Feeling() {
             payload: feeling
         })
 
-        history.push("/understanding");
+        if (feeling === '') {
+            swal({title: 'Missing Input!', text:'Choose a value before continuing.', dangerMode: true})
+        }
+        else {
+            history.push("/understanding");
+        }
     }
 
     return(

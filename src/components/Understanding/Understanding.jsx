@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import swal from "sweetalert";
 
 function Understanding() {
     const [understanding, setUnderstanding] = useState('')
@@ -19,7 +20,12 @@ function Understanding() {
             payload: understanding
         })
 
-        history.push("/support");
+        if (understanding === '') {
+            swal({title: 'Missing Input!', text:'Choose a value before continuing.', dangerMode: true})
+        }
+        else {
+            history.push("/support");
+        }
     }
 
     return(

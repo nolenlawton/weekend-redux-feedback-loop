@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import swal from "sweetalert";
 
 function Support() {
     const [support, setSupport] = useState('')
@@ -19,7 +20,13 @@ function Support() {
             payload: support
         })
 
-        history.push("/comments");
+        if (support === '') {
+            swal({title: 'Missing Input!', text:'Choose a value before continuing.', dangerMode: true})
+        }
+        else {
+            history.push("/comments");
+        }
+
     }
 
     return(

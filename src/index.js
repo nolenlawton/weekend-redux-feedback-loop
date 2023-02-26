@@ -7,38 +7,29 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const feeling = (state = [], action) => {
+// survey values
+const survey = (state = {}, action) => {
+// adds properties to survey object
+
     if(action.type === 'SET_FEELING'){
-        console.log(action.payload)
-        return action.payload
+        return {...state,  feeling: action.payload}
     }
-    return state
-}
 
-const understanding = (state = [], action) => {
     if(action.type === 'SET_UNDERSTANDING'){
-        console.log(action.payload)
-        return action.payload
+        return {...state,  understanding: action.payload}
     }
-    return state
-}
 
-const support = (state = [], action) => {
     if(action.type === 'SET_SUPPORT'){
-        console.log(action.payload)
-        return action.payload
+        return {...state,  support: action.payload}
     }
-    return state
-}
 
-const comments = (state = [], action) => {
     if(action.type === 'SET_COMMENTS'){
-        console.log(action.payload)
-        return action.payload
+        return {...state, comments: action.payload}
     }
     return state
 }
 
+// all surveys from database
 const surveyList = (state = [], action) => {
     if(action.type === 'SET_SURVEY_LIST') {
         return action.payload
@@ -49,13 +40,9 @@ const surveyList = (state = [], action) => {
 // store to hold reducers
 const store = createStore(
     combineReducers({
-        feeling,
-        understanding,
-        support,
-        comments,
+        survey,
         surveyList
-    }),
-    // applyMiddleware(logger)
+    })
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

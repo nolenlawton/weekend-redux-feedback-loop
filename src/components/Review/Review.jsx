@@ -5,7 +5,7 @@ import swal from "sweetalert";
 import Button from '@mui/material/Button';
 
 function Review() {
-    const survey = useSelector(store => store)
+    const survey = useSelector(store => store.survey)
     const history = useHistory()
     
 // sends survey to the database and the user back to first page
@@ -16,11 +16,11 @@ function Review() {
           })
           .then((willPost) => {
             if (willPost) {
-              swal("Survey was submitted!", {icon: "success",})
 
               axios.post('/survey', survey)
                 .then((response) => {
-                history.push('/')
+                    swal("Survey was submitted!", {icon: "success",})
+                    history.push('/')
                 })
                 .catch((error) => {
                 console.log(error);

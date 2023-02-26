@@ -39,12 +39,20 @@ const comments = (state = [], action) => {
     return state
 }
 
+const surveyList = (state = [], action) => {
+    if(action.type === 'SET_SURVEY_LIST') {
+        return action.payload
+    }
+    return state
+}
+
 const store = createStore(
     combineReducers({
         feeling,
         understanding,
         support,
-        comments
+        comments,
+        surveyList
     }),
     applyMiddleware(logger)
 )

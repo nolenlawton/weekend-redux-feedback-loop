@@ -89,10 +89,16 @@ label {
   font-size: 16px;
   padding: 8px;
   border-radius: 16px;
-  border: 2px solid #395e9a;
+  border: 2px solid #2c5dab;
   background-color: white;
   color: #395e9a;
   cursor: pointer;
+}
+
+.submit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px
 }
 
 h4 {
@@ -121,4 +127,39 @@ th {
 td {
   background-color: #5288de;
   padding: 16px;
+}
+
+
+.admin {
+
+  background-color: #2c5dab;
+  color:white;
+  width: 100%;
+  margin: auto;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.adminTable {
+  border: 2px solid white ;
+}
+
+.adminButton {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 2px solid #395e9a;
+  background-color: white;
+  color: #395e9a;
+  cursor: pointer;
+}
+
+.flaggedButton {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 2px solid #395e9a;
+  background-color: lightcoral;
+  color: #395e9a;
+  cursor: pointer;
 }

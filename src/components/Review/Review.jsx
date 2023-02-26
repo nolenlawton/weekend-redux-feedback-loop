@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux"
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import swal from "sweetalert";
+import Button from '@mui/material/Button';
+
 
 function Review() {
     const survey = useSelector(store => store)
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const handleClick = () => {
         console.log(survey)
@@ -17,6 +22,7 @@ function Review() {
           .then((willPost) => {
             if (willPost) {
               swal("Survey was submitted!", {icon: "success",})
+
               axios.post('/survey', survey)
                 .then((response) => {
                 history.push('/')
@@ -26,6 +32,10 @@ function Review() {
                 })
             } 
           })
+    }
+
+    const handleBack = () => {
+        history.goBack()
     }
 
     return(
@@ -57,7 +67,8 @@ function Review() {
             </table>
 
             {/* submits to database */}
-            <button className='next' onClick={handleClick} >Submit</button>
+            <div className="submit"><Button variant="contained" onClick={handleClick} >Submit</Button></div>
+            <button className="back" onClick={handleBack}>Back</button>
         </div>
     )
 }

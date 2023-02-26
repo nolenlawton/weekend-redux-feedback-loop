@@ -10,11 +10,9 @@ import Button from '@mui/material/Button';
 function Review() {
     const survey = useSelector(store => store)
     const history = useHistory()
-    const dispatch = useDispatch()
 
     const handleClick = () => {
-        console.log(survey)
-        
+
         swal({
             title: "Submit Survey?",
             buttons: true,

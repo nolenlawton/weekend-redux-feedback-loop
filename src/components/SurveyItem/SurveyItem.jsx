@@ -1,6 +1,11 @@
 import axios from "axios";
 
 function SurveyItem ({survey, getList}) {
+    const date = survey.date
+    const dateSepertatedTime = date.split('T06:00:00.000Z')
+    const dateWithoutTime = dateSepertatedTime[0]
+
+    console.log(dateWithoutTime)
 
     const handleDelete = () => {
         swal({
@@ -25,7 +30,6 @@ function SurveyItem ({survey, getList}) {
 
     const handleFlag = () => {
         let id = survey.id
-        console.log('flag ', id)
 
         axios.put(`/survey/${id}`, survey)
             .then((response) => {
@@ -41,7 +45,7 @@ function SurveyItem ({survey, getList}) {
         <td>{survey.understanding}</td>
         <td>{survey.support}</td>
         <td>{survey.comments}</td>
-        <td>{survey.date}</td>
+        <td>{dateWithoutTime}</td>
         <td><button onClick={handleFlag} className= { survey.flagged ? 'flaggedButton' : "adminButton" }>Flag</button></td>
         <td><button onClick={handleDelete} className="adminButton" >Delete</button></td>
         </tr>

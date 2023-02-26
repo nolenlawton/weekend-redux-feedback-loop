@@ -5,7 +5,6 @@ const pool = require('../modules/pool.js');
 
 router.post('/', (req, res) => {
     const survey = req.body;
-    console.log(survey)
     const queryText = `
         INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
         VALUES ($1, $2, $3, $4);
@@ -14,7 +13,7 @@ router.post('/', (req, res) => {
         survey.feeling,      
         survey.understanding,
         survey.support,
-        survey.comments           
+        survey.comments
     ]
 
     pool.query(queryText, queryParams)

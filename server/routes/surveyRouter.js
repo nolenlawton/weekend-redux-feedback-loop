@@ -3,6 +3,7 @@ const router = express.Router();
 
 const pool = require('../modules/pool.js');
 
+// inserts survey to database
 router.post('/', (req, res) => {
     const survey = req.body;
     const queryText = `
@@ -26,6 +27,7 @@ router.post('/', (req, res) => {
         })
 });
 
+// selects all surveys from database
 router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "feedback" ORDER BY "id" DESC';
     pool.query(queryText)
@@ -37,6 +39,7 @@ router.get('/', (req, res) => {
     });
   });
 
+// deletes survey from database by id
 router.delete('/:id', async (req, res) => {
     const queryText = `
         DELETE FROM "feedback"
@@ -53,6 +56,7 @@ router.delete('/:id', async (req, res) => {
         });
 });
 
+// updates 'flagged' property from the database by survey id
 router.put('/:id', async (req, res) =>{
   const flagged = !req.body.flagged
   const id = req.params.id

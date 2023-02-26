@@ -1,25 +1,26 @@
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
 function Support() {
     const [support, setSupport] = useState('')
+    const dispatch = useDispatch()
+    const history = useHistory()
 
+// sets value of 'support' from the input field
     const handleSupport = (event) => {
-        console.log('support: ', event.target.value)
         setSupport(event.target.value)
     }
 
-    const dispatch = useDispatch()
-    const history = useHistory();
-
+// sends value of 'support' to the store
     const handleClick = () => {
         dispatch({
             type: 'SET_SUPPORT',
             payload: support
         })
 
+    // sends user to 'comments' page if value !null
         if (support === '') {
             swal({title: 'Missing Input!', text:'Choose a value before continuing.', dangerMode: true})
         }
@@ -28,10 +29,12 @@ function Support() {
         }
     }
 
+// ability to go back to 'understanding' page
     const handleBack = () => {
         history.goBack()
     }
 
+// form for user to select value of 'support'
     return(
         <div className="component">
             <h2 className="question">How well are you being supported?</h2>

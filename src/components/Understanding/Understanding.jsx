@@ -1,25 +1,27 @@
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
+
 
 function Understanding() {
     const [understanding, setUnderstanding] = useState('')
+    const dispatch = useDispatch()
+    const history = useHistory()
 
+// sets value of 'understanding' from the input field
     const handleUnderstanding = (event) => {
-        console.log('understanding: ', event.target.value)
         setUnderstanding(event.target.value)
     }
 
-    const dispatch = useDispatch()
-    const history = useHistory();
-
+// sends value of 'understanding' to the store
     const handleClick = () => {
         dispatch({
             type: 'SET_UNDERSTANDING',
             payload: understanding
         })
 
+    // sends user to 'support' page if value !null
         if (understanding === '') {
             swal({title: 'Missing Input!', text:'Choose a value before continuing.', dangerMode: true})
         }
@@ -28,10 +30,12 @@ function Understanding() {
         }
     }
 
+// ability to go back to 'feeling' page
     const handleBack = () => {
         history.goBack()
     }
 
+// form for user to select value of 'understanding'
     return(
         <div className="component">
             <h2 className="question">How well are you understanding the content?</h2>

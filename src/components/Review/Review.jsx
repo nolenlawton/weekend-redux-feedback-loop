@@ -1,18 +1,15 @@
 import { useSelector } from "react-redux"
-import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-
+import axios from "axios";
 import swal from "sweetalert";
 import Button from '@mui/material/Button';
-
 
 function Review() {
     const survey = useSelector(store => store)
     const history = useHistory()
-
+    
+// sends survey to the database and the user back to first page
     const handleClick = () => {
-
         swal({
             title: "Submit Survey?",
             buttons: true,
@@ -32,10 +29,12 @@ function Review() {
           })
     }
 
+// ability to go back to 'comments' page
     const handleBack = () => {
         history.goBack()
     }
 
+// table for user to see their survey values
     return(
         <div className="component">
             <h2>Review</h2>

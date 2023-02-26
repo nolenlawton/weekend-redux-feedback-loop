@@ -1,18 +1,18 @@
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function Comments() {
     const [comments, setComments] = useState('')
+    const dispatch = useDispatch()
+    const history = useHistory()
 
+// sets value of 'comments' from the input field
     const handleComments = (event) => {
-        console.log('comments: ', event.target.value)
         setComments(event.target.value)
     }
 
-    const dispatch = useDispatch()
-    const history = useHistory();
-
+// sends value of 'comments' to the store & sends user to 'review' page
     const handleClick = () => {
         dispatch({
             type: 'SET_COMMENTS',
@@ -22,10 +22,12 @@ function Comments() {
         history.push("/review");
     }
 
+// ability to go back to 'support' page
     const handleBack = () => {
         history.goBack()
     }
 
+// form for user to select value of 'comments'
     return(
         <div className="component">
             <h2 className="question">Any comments you want to leave?</h2>

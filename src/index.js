@@ -46,6 +46,7 @@ const surveyList = (state = [], action) => {
     return state
 }
 
+// store to hold reducers
 const store = createStore(
     combineReducers({
         feeling,
@@ -54,7 +55,7 @@ const store = createStore(
         comments,
         surveyList
     }),
-    applyMiddleware(logger)
+    // applyMiddleware(logger)
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,18 +1,16 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 import SurveyItem from "../SurveyItem/SurveyItem";
 
 function Admin () {
     const dispatch = useDispatch()
     const surveyList = useSelector(store => store.surveyList)
 
+// gets list from database and sends to store
     const getList = () => {
         axios.get('/survey')
         .then((response) => {
-            console.log(response.data)
 
             dispatch({
                 type: 'SET_SURVEY_LIST',
@@ -24,12 +22,12 @@ function Admin () {
         });
     }
     
-
+// gets database on page load
     useEffect(() => {
-        console.log('in useEffect');
         getList();
     }, []);
 
+// table to show admin list of surveys in database
       return(
         <div className="admin">
         <h2>Admin List</h2>

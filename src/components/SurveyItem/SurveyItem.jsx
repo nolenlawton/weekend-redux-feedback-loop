@@ -1,12 +1,12 @@
 import axios from "axios";
 
 function SurveyItem ({survey, getList}) {
+// changes date to not have time (annoying I couldn't do this in SQL)
     const date = survey.date
     const dateSepertatedTime = date.split('T06:00:00.000Z')
     const dateWithoutTime = dateSepertatedTime[0]
 
-    console.log(dateWithoutTime)
-
+// ability for admin to delete survey from database
     const handleDelete = () => {
         swal({
             title: "Are you sure?",
@@ -28,6 +28,7 @@ function SurveyItem ({survey, getList}) {
         });
     }
 
+// ability for admin to flag survey from database
     const handleFlag = () => {
         let id = survey.id
 
@@ -39,6 +40,7 @@ function SurveyItem ({survey, getList}) {
             })
     }
 
+// each survey item (row) shown in table list
     return(
         <tr>
         <td>{survey.feeling}</td>

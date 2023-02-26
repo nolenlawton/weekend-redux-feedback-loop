@@ -1,26 +1,26 @@
 import { useState } from "react"
-import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import swal from "sweetalert";
 
 function Feeling() {
     const [feeling, setFeeling] = useState('')
-
-    const handleFeeling = (event) => {
-        console.log('feeling: ', event.target.value)
-        setFeeling(event.target.value)
-    }
-
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const handleClick = () => {
+// sets value of 'feeling' from the input field
+    const handleFeeling = (event) => {
+        setFeeling(event.target.value)
+    }
 
+// sends value of 'feeling' to the store
+    const handleClick = () => {
         dispatch({
             type: 'SET_FEELING',
             payload: feeling
         })
 
+    // sends user to 'understanding' page if value !null
         if (feeling === '') {
             swal({title: 'Missing Input!', text:'Choose a value before continuing.', dangerMode: true})
         }
@@ -29,6 +29,7 @@ function Feeling() {
         }
     }
 
+// form for user to select value of 'feeling'
     return(
         <div className="component">
             <h2 className="question">How are you feeling today?</h2>
